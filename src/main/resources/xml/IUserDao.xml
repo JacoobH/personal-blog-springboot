@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.blogspot.danserlesgens.personalblogspringboot.dao.IUserDao">
+    <!--resultMap里的id写返回结果集，以键值对得方式返回，type里写model得别名，映射类  -->
+    <resultMap id="UserResultMap" type="User">
+        <!-- 这里的id为主键 ,result为返回结果，property为model对应得字段别名，column表里得字段名 -->
+        <id property="username" column="USERNAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="permission" column="PERMISSION"/>
+        <result property="photoPath" column="PHOTO_PATH"/>
+        <result property="photoFileName" column="PHOTO_FILE_NAME"/>
+        <result property="photoContentType" column="PHOTO_CONTENT_TYPE"/>
+    </resultMap>
+
+    <!--parameterType：设置别名 useGeneratedKeys="true" keyProperty="no"表里自增 ，这里得设置方法-->
+    <insert id="insert">
+        insert into user (USERNAME,PASSWORD) values (#{username},#{password});
+    </insert>
+
+    <update id="update">
+        update user
+        <set>
+            <if test="password != null">PASSWORD = #{password},</if>
+            <if test="photoPath != null">PHOTO_PATH = #{photoPath},</if>
+            <if test="photoFileName != null">PHOTO_FILE_NAME = #{photoFileName},</if>
+            <if test="photoContentType != null">PHOTO_CONTENT_TYPE = #{photoContentType}</if>
+        </set>
+        where USERNAME = #{username};
+    </update>
+
+    <delete id="delete">
+        delete from user
+        where USERNAME = #{username};
+    </delete>
+
+    <select id="selectListBySearchText" resultMap="UserResultMap">
+        select * from user
+        <where>
+            <if test="searchText != null">
+                and USERNAME regexp #{searchText}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUserByUsername" resultMap="UserResultMap">
+        select * from user
+        where USERNAME = #{username}
+    </select>
+</mapper>

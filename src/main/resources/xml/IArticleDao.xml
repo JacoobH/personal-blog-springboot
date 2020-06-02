@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.blogspot.danserlesgens.personalblogspringboot.dao.IArticleDao">
+    <!--resultMap里的id写返回结果集，以键值对得方式返回，type里写model得别名，映射类  -->
+    <resultMap id="ArticleResultMap" type="Article">
+        <!-- 这里的id为主键 ,result为返回结果，property为model对应得字段别名，column表里得字段名 -->
+        <id property="id" column="AID"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="ACONTENT"/>
+        <result property="views" column="VIEWS"/>
+        <result property="releaseTime" column="RELEASE_TIME"/>
+    </resultMap>
+
+    <!--parameterType：设置别名 useGeneratedKeys="true" keyProperty="no"表里自增 ，这里得设置方法-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into article (TITLE, ACONTENT)
+        values (#{title},#{content});
+    </insert>
+
+    <update id="update">
+        update article
+        <set>
+            <if test="title != null">TITLE = #{title},</if>
+            <if test="content != null">ACONTENT = #{content},</if>
+            <if test="views != null">VIEWS = #{views},</if>
+            <if test="releaseTime != null">RELEASE_TIME = #{releaseTime}</if>
+        </set>
+        where AID = #{id};
+    </update>
+
+    <delete id="delete">
+        delete from article
+        where AID = #{id}
+    </delete>
+
+    <select id="selectListBySearchText" resultMap="ArticleResultMap">
+        select * from article
+        <where>
+            <if test="searchText != null">
+                and title regexp #{searchText}
+            </if>
+        </where>
+        order by RELEASE_TIME DESC
+    </select>
+
+    <select id="selectArticleById" resultMap="ArticleResultMap">
+        select * from article
+        where AID = #{id};
+    </select>
+</mapper>
