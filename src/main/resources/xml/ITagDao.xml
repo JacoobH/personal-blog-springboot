@@ -32,6 +32,14 @@
         delete from tag where Tag = #{tag};
     </delete>
 
+    <delete id="deleteTags">
+        delete from article_tag where AID = #{aid} and TID  in (
+        <foreach  item="atm" collection="aTms" separator=",">
+            #{atm.id}
+        </foreach>
+        )
+    </delete>
+
     <select id="selectIdByName" resultType="int">
         select TID from tag
         where TAG = #{tagName}

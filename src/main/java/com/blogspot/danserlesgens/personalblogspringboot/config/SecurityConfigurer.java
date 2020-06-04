@@ -48,6 +48,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                         "/article/getArticleById",
                         "/comment/getListByArticle",
                         "/user/add",
+                        "/tag/getListByAll",
                         "/tag/addTags")
                 .permitAll().anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

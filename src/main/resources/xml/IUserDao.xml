@@ -10,6 +10,14 @@
         <id property="username" column="USERNAME"/>
         <result property="password" column="PASSWORD"/>
         <result property="permission" column="PERMISSION"/>
+        <result property="email" column="EMAIL"/>
+        <result property="lastName" column="LAST_NAME"/>
+        <result property="firstName" column="FIRST_NAME"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="city" column="CITY"/>
+        <result property="street" column="STREET"/>
+        <result property="postalCode" column="POSTAL_CODE"/>
+        <result property="introduction" column="INTRODUCTION"/>
         <result property="photoPath" column="PHOTO_PATH"/>
         <result property="photoFileName" column="PHOTO_FILE_NAME"/>
         <result property="photoContentType" column="PHOTO_CONTENT_TYPE"/>
@@ -24,6 +32,14 @@
         update user
         <set>
             <if test="password != null">PASSWORD = #{password},</if>
+            <if test="email != null">EMAIL = #{email},</if>
+            <if test="lastName != null">LAST_NAME = #{lastName},</if>
+            <if test="firstName != null">FIRST_NAME = #{firstName},</if>
+            <if test="address != null">ADDRESS = #{address},</if>
+            <if test="city != null">CITY = #{city},</if>
+            <if test="street != null">STREET = #{street},</if>
+            <if test="postalCode != null">POSTAL_CODE = #{postalCode},</if>
+            <if test="introduction != null">INTRODUCTION = #{introduction},</if>
             <if test="photoPath != null">PHOTO_PATH = #{photoPath},</if>
             <if test="photoFileName != null">PHOTO_FILE_NAME = #{photoFileName},</if>
             <if test="photoContentType != null">PHOTO_CONTENT_TYPE = #{photoContentType}</if>

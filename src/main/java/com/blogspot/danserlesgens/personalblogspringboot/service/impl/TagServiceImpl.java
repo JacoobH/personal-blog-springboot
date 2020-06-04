@@ -29,6 +29,14 @@ public class TagServiceImpl implements ITagService {
     @Override
     public void addTags(int aid, List<TagModel> tms) {
 //        System.out.println(tms);
+        List<TagModel> aTms = getListByArticle(aid);
+        System.out.println(aTms);
+        aTms.removeAll(tms);
+        System.out.println(aTms);
+        if (!aTms.isEmpty()){
+            System.out.println(aTms+"非空！");
+            removeTags(aid, aTms);
+        }
         //如果标签不存在则添加标签
         List<TagModel> existedTags = new ArrayList<>();
         for(TagModel tm : tms){
@@ -55,6 +63,12 @@ public class TagServiceImpl implements ITagService {
     @Override
     public void remove(TagModel tm) {
         td.delete(tm);
+    }
+
+    @Override
+    public void removeTags(int aid, List<TagModel> aTms) {
+        System.out.println(aTms+"removeTags");
+        td.deleteTags(aid, aTms);
     }
 
     @Override

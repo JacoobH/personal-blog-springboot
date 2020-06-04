@@ -37,7 +37,16 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void add(UserModel um) {
-        ud.insert(um);
+        boolean flag = false;
+        List<UserModel> list = getListBySearchText(null);
+        for(UserModel user : list)    {
+            if (user.getUsername().equals(um.getUsername())){
+                flag = true;
+            }
+        }
+        if (!flag) {
+            ud.insert(um);
+        }
     }
 
     @Override

@@ -14,6 +14,7 @@ public interface ITagDao {
     void insertTags(@Param("aid") int aid, @Param("tms") List<TagModel> tms);
     void update(TagModel tm);
     void delete(TagModel tm);
+    void deleteTags(@Param("aid") int aid, @Param("aTms") List<TagModel> aTms);
 
     //根据标签名查找标签
     int selectIdByName(String tagName);

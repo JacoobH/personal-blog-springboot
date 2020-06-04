@@ -8,6 +8,7 @@ public interface ITagService {
     void add(TagModel tm);
     void addTags(int aid, List<TagModel> tms);
     void remove(TagModel tm);
+    void removeTags(int aid, List<TagModel> aTms);
     void modify(TagModel tm);
 
     int getIdByName(String tagName);
