@@ -104,7 +104,7 @@ http://localhost:4200
 ## :floppy_disk: 数据库设计 
 ### mysql安装教程
 如下：https://danserlesgens.blogspot.com/2018/03/mysqlzip.html
-### 表
+### 创建表脚本
 如下：https://github.com/JacoobH/personal-blog-springboot/tree/master/sql
 ### 更改application.properties的数据库配置
 application.properties在项目中的路径如下/src/main/resources/application.properties
