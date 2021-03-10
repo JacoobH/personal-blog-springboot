@@ -2,7 +2,6 @@
 前端项目在https://github.com/JacoobH/personal-blog-angular2
 
 <div align="center">
-    <a href="https://gitstar-ranking.com/repositories"> <img src="https://badgen.net/badge/Rank/13?icon=github&color=4ab8a1"></a>
     <a href="https://github.com/JacoobH/personal-blog-angular2"> <img src="https://badgen.net/github/stars/JacoobH/personal-blog-angular2?icon=github&color=4ab8a1"></a>
     <a href="https://github.com/JacoobH/personal-blog-angular2"> <img src="https://badgen.net/github/forks/JacoobH/personal-blog-angular2?icon=github&color=4ab8a1"></a>
 </div>
