@@ -1,4 +1,4 @@
-## :bulb: 此项目为项目《个人博客》的后台资源，
+## :bulb: 此项目为项目《个人博客》的后台
 前端项目在https://github.com/JacoobH/personal-blog-angular2
 
 <div align="center">
