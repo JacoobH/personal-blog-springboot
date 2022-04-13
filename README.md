@@ -113,4 +113,11 @@ application.properties在项目中的路径如下/src/main/resources/application
 
 ## :floppy_disk: Docker镜像
 
+使用如下命令拉起 镜像
 > docker pull chia11/personal-blog-spring
+
+使用run命令启动容器
+> docker run -d -p 8080:8080 --name pb-spring personal-blog-spring
+
+关于此镜像，请访问下述地址
+https://hub.docker.com/repository/docker/chia11/personal-blog-spring
