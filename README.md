@@ -110,3 +110,7 @@ http://localhost:4200
 如下：https://github.com/JacoobH/personal-blog-springboot/tree/master/sql
 ### 更改application.properties的数据库配置
 application.properties在项目中的路径如下/src/main/resources/application.properties
+
+## :floppy_disk: Docker镜像
+
+> docker pull chia11/personal-blog-spring
